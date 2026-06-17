@@ -77,10 +77,10 @@
     <main>
         <section class="section-padding">
             <div class="container">
-                <div class="product-detail" id="product-detail"></div>
+                <div class="product-detail" id="product-detail" data-animate></div>
                 <div class="similar-products" id="similar-products" style="display:none">
-                    <h2 class="similar-products__title">Похожие товары</h2>
-                    <div class="similar-grid" id="similar-grid"></div>
+                    <h2 class="similar-products__title" data-animate>Похожие товары</h2>
+                    <div class="similar-grid" id="similar-grid" data-animate-stagger></div>
                 </div>
             </div>
         </section>
@@ -95,6 +95,12 @@
             </div>
         </div>
     </footer>
+
+    <button class="back-to-top" aria-label="Наверх" data-back-to-top>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script src="js/products.js"></script>
     <script>

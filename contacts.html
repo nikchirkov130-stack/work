@@ -71,7 +71,7 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <section class="page-header" data-animate>
             <div class="container">
                 <h1 class="page-header__title">Контакты</h1>
                 <p class="page-header__breadcrumb"><a href="/">Главная</a> / Контакты</p>
@@ -80,7 +80,7 @@
 
         <section class="section-padding">
             <div class="container">
-                <div class="contacts-page__grid">
+                <div class="contacts-page__grid" data-animate>
                     <div class="contacts-page__form-wrap">
                         <form class="contacts-page__form" id="contact-form">
                             <h3 class="contacts-page__form-title">Напишите нам</h3>
@@ -168,6 +168,12 @@
             </div>
         </div>
     </footer>
+
+    <button class="back-to-top" aria-label="Наверх" data-back-to-top>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script src="js/main.js"></script>
 </body>

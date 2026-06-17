@@ -71,7 +71,7 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <section class="page-header" data-animate>
             <div class="container">
                 <h1 class="page-header__title">Услуги</h1>
                 <p class="page-header__breadcrumb"><a href="/">Главная</a> / Услуги</p>
@@ -80,13 +80,13 @@
 
         <section class="section-padding">
             <div class="container">
-                <div class="section-header section-header--center">
+                <div class="section-header section-header--center" data-animate>
                     <p class="section-descr">Профессиональный подход к каждому клиенту</p>
                     <h2 class="section-title">Что мы предлагаем</h2>
                     <p class="section-descr-title">Полный спектр услуг по продаже, установке и обслуживанию прицепной техники</p>
                 </div>
 
-                <div class="services-grid">
+                <div class="services-grid" data-animate-stagger>
                     <div class="service-card">
                         <div class="service-card__icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -169,6 +169,12 @@
             </div>
         </div>
     </footer>
+
+    <button class="back-to-top" aria-label="Наверх" data-back-to-top>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script src="js/main.js"></script>
 </body>

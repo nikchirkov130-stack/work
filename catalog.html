@@ -75,7 +75,7 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <section class="page-header" data-animate>
             <div class="container">
                 <h1 class="page-header__title">Каталог прицепов</h1>
                 <p class="page-header__breadcrumb"><a href="/">Главная</a> / Каталог</p>
@@ -85,7 +85,7 @@
         <section class="section-padding">
             <div class="container">
                 <div class="catalog-layout">
-                    <aside class="filter-sidebar" id="filter-sidebar">
+                    <aside class="filter-sidebar" id="filter-sidebar" data-animate="slide-left">
                         <div class="filter-sidebar__title">
                             Фильтры
                             <button class="filter-sidebar__clear" id="clear-filters">Сбросить</button>
@@ -156,7 +156,7 @@
                         </div>
                     </aside>
 
-                    <div class="catalog-content">
+                    <div class="catalog-content" data-animate="slide-right">
                         <div class="catalog-content__header">
                             <p class="catalog-content__count" id="product-count">Найдено: 0 товаров</p>
                             <div class="catalog-content__sort">
@@ -176,7 +176,7 @@
                             </button>
                         </div>
 
-                        <div class="catalog-grid" id="catalog-grid"></div>
+                        <div class="catalog-grid" id="catalog-grid" data-animate-stagger></div>
                         <div class="catalog-empty" id="catalog-empty" style="display:none">
                             <div class="catalog-empty__title">Ничего не найдено</div>
                             <p class="catalog-empty__text">Попробуйте изменить параметры фильтрации</p>
@@ -197,6 +197,12 @@
             </div>
         </div>
     </footer>
+
+    <button class="back-to-top" aria-label="Наверх" data-back-to-top>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script src="js/products.js"></script>
     <script>

@@ -71,7 +71,7 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <section class="page-header" data-animate>
             <div class="container">
                 <h1 class="page-header__title">О компании</h1>
                 <p class="page-header__breadcrumb"><a href="/">Главная</a> / О компании</p>
@@ -80,12 +80,12 @@
 
         <section class="section-padding">
             <div class="container">
-                <div class="about-page__content">
+                <div class="about-page__content" data-animate>
                     <p class="about-page__text">Наша компания уже <strong>23 года</strong> является ведущим поставщиком прицепной техники в Смоленске и Смоленской области. За это время мы заслужили доверие тысяч клиентов благодаря качественному обслуживанию, широкому ассортименту и выгодным ценам.</p>
                     <p class="about-page__text">Мы являемся официальным дилером ведущих производителей прицепов: Курганского завода, МЗСА, САЗ, а также поставщиком качественных фаркопов и комплектующих от мировых брендов AL-KO, Bosal, Brink. Вся продукция сертифицирована и соответствует ГОСТ Р 54861-2011.</p>
                     <p class="about-page__text">Наши преимущества — это стабильное и надежное партнерство, серьезный опыт работы и удобный сервис. Будем рады сотрудничеству с вами и уверены, что сможем оказаться вам полезны!</p>
 
-                    <div class="about-page__stats">
+                    <div class="about-page__stats" data-animate-stagger>
                         <div class="about-page__stat">
                             <span class="about-page__stat-number">23</span>
                             <span class="about-page__stat-text">года на рынке прицепной техники</span>
@@ -100,8 +100,8 @@
                         </div>
                     </div>
 
-                    <h2 class="section-title section-title--left">Наши ценности</h2>
-                    <div class="about-page__features">
+                    <h2 class="section-title section-title--left" data-animate>Наши ценности</h2>
+                    <div class="about-page__features" data-animate-stagger>
                         <div class="about-page__feature">
                             <div class="about-page__feature-icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -153,6 +153,12 @@
             </div>
         </div>
     </footer>
+
+    <button class="back-to-top" aria-label="Наверх" data-back-to-top>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script src="js/main.js"></script>
 </body>

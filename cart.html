@@ -103,7 +103,7 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <section class="page-header" data-animate>
             <div class="container">
                 <h1 class="page-header__title">Корзина</h1>
                 <p class="page-header__breadcrumb"><a href="/">Главная</a> / Корзина</p>
@@ -111,7 +111,7 @@
         </section>
 
         <section class="section-padding cart-page">
-            <div class="container" id="cart-content">
+            <div class="container" id="cart-content" data-animate>
                 <div class="cart-empty" id="cart-empty">
                     <div class="cart-empty__title">Корзина пуста</div>
                     <p class="cart-empty__text">Добавьте товары из каталога</p>
@@ -171,6 +171,12 @@
             </form>
         </div>
     </div>
+
+    <button class="back-to-top" aria-label="Наверх" data-back-to-top>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script src="js/main.js"></script>
     <script>
