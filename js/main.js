@@ -361,6 +361,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = e.target.closest('[data-add-to-cart]');
         if (!btn) return;
 
+        e.preventDefault();
+
         const id = parseInt(btn.dataset.id);
         const name = btn.dataset.name;
         const price = parseInt(btn.dataset.price);
