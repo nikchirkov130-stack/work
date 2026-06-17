@@ -344,19 +344,18 @@ document.addEventListener('DOMContentLoaded', () => {
         cartCountEl.textContent = cartCount;
     }
 
-    function getCart() {
+    window.getCart = function() {
         try { return JSON.parse(localStorage.getItem('cart_items')) || []; }
         catch { return []; }
-    }
+    };
 
-    function saveCart(items) {
+    window.saveCart = function(items) {
         localStorage.setItem('cart_items', JSON.stringify(items));
         const total = items.reduce((s, i) => s + i.quantity, 0);
         localStorage.setItem('cartCount', total);
-        if (cartCountEl) {
-            cartCountEl.textContent = total;
-        }
-    }
+        const el = document.querySelector('[data-cart-count]');
+        if (el) el.textContent = total;
+    };
 
     document.body.addEventListener('click', (e) => {
         const btn = e.target.closest('[data-add-to-cart]');
