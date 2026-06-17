@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Услуги по продаже прицепов, фаркопов, тентов в Смоленске. Доставка, установка, ремонт, гарантийное обслуживание.">
+    <title>Услуги | Прицепы в Смоленске</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <header class="header" data-header>
+        <div class="container header__container">
+            <a href="/" class="header__logo">
+                <img src="img/logo.png" alt="Прицепы Смоленск" class="header__logo-img" width="180" height="60">
+            </a>
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="/" class="header__menu-link">Главная</a></li>
+                    <li class="header__menu-item"><a href="catalog.html" class="header__menu-link">Каталог</a></li>
+                    <li class="header__menu-item"><a href="about.html" class="header__menu-link">О компании</a></li>
+                    <li class="header__menu-item"><a href="services.html" class="header__menu-link">Услуги</a></li>
+                    <li class="header__menu-item"><a href="contacts.html" class="header__menu-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <div class="header__search">
+                    <form class="search-form" role="search" action="catalog.html">
+                        <input type="search" class="search-form__input" placeholder="Поиск по товарам" aria-label="Поиск" name="q">
+                        <button type="submit" class="search-form__btn" aria-label="Найти">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                        </button>
+                    </form>
+                </div>
+                <a href="cart.html" class="header__cart" aria-label="Корзина">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="header__cart-count" data-cart-count>0</span>
+                </a>
+                <div class="header__contacts-block">
+                    <a href="tel:+74812600310" class="header__phone">+7 (4812) 600-310</a>
+                    <span class="header__work-time">Пн-Вс: 9:00 - 18:00</span>
+                </div>
+            </div>
+            <button class="header__burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="header__mobile-menu" data-mobile-menu>
+            <nav class="header__mobile-nav">
+                <ul class="header__mobile-menu-list">
+                    <li><a href="/" class="header__mobile-menu-link">Главная</a></li>
+                    <li><a href="catalog.html" class="header__mobile-menu-link">Каталог</a></li>
+                    <li><a href="about.html" class="header__mobile-menu-link">О компании</a></li>
+                    <li><a href="services.html" class="header__mobile-menu-link">Услуги</a></li>
+                    <li><a href="contacts.html" class="header__mobile-menu-link">Контакты</a></li>
+                </ul>
+                <div class="header__mobile-contacts">
+                    <a href="tel:+74812600310" class="header__mobile-phone">+7 (4812) 600-310</a>
+                    <span class="header__mobile-work-time">Пн-Вс: 9:00 - 18:00</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Услуги</h1>
+                <p class="page-header__breadcrumb"><a href="/">Главная</a> / Услуги</p>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header section-header--center">
+                    <p class="section-descr">Профессиональный подход к каждому клиенту</p>
+                    <h2 class="section-title">Что мы предлагаем</h2>
+                    <p class="section-descr-title">Полный спектр услуг по продаже, установке и обслуживанию прицепной техники</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <polyline points="9 12 11 14 15 10"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Продажа прицепов</h3>
+                        <p class="service-card__text">Более 273 моделей прицепов от ведущих производителей. Любая модификация под ваши задачи. Помощь в выборе и консультация.</p>
+                        <span class="service-card__price">от 38 000 ₽</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Установка фаркопов</h3>
+                        <p class="service-card__text">Профессиональная установка ТСУ на любые автомобили. Подключение электрики. Гарантия на все работы.</p>
+                        <span class="service-card__price">от 4 500 ₽</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Доставка по Смоленску</h3>
+                        <p class="service-card__text">Быстрая доставка прицепов за 1 день по Смоленску. Доставка по области и в регионы — индивидуальный расчёт.</p>
+                        <span class="service-card__price">от 1 000 ₽</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Гарантийное обслуживание</h3>
+                        <p class="service-card__text">Официальная гарантия 12 месяцев на все прицепы. Бесплатное гарантийное обслуживание в нашем сервисном центре.</p>
+                        <span class="service-card__price">Бесплатно</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Ремонт и запчасти</h3>
+                        <p class="service-card__text">Ремонт прицепов любой сложности. Большой склад оригинальных запчастей и комплектующих в наличии.</p>
+                        <span class="service-card__price">от 500 ₽</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Рассрочка и кредит</h3>
+                        <p class="service-card__text">Удобные способы оплаты: наличные, карта, безнал для юрлиц. Рассрочка 0% на 12 месяцев, кредит от 4.9%.</p>
+                        <span class="service-card__price">от 0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__bar">
+                <img src="img/logo.png" alt="Прицепы Смоленск" class="footer__logo" width="180" height="60">
+                <p class="footer__copyright">&copy; 2024 Прицепы в Смоленске. Все права защищены.</p>
+                <a href="privacy.html" class="footer__privacy">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

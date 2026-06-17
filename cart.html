@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Корзина интернет-магазина прицепов в Смоленске.">
+    <title>Корзина | Прицепы в Смоленске</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .cart-page { min-height: 50vh; }
+        .cart-empty { text-align: center; padding: 80px 20px; }
+        .cart-empty__title { font-size: var(--font-size-2xl); font-weight: 800; color: var(--color-text-main); margin-bottom: 12px; }
+        .cart-empty__text { color: var(--color-text-muted); margin-bottom: 24px; }
+        .cart-table { width: 100%; border-collapse: collapse; }
+        .cart-table th { text-align: left; padding: 16px; font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); font-weight: 700; border-bottom: 2px solid var(--color-border); }
+        .cart-table td { padding: 16px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
+        .cart-item { display: flex; align-items: center; gap: 16px; }
+        .cart-item__image { width: 80px; height: 80px; object-fit: contain; border-radius: var(--radius-sm); background: var(--color-bg-light); }
+        .cart-item__name { font-weight: 600; color: var(--color-text-main); text-decoration: none; }
+        .cart-item__name:hover { color: var(--color-primary); }
+        .cart-qty { display: flex; align-items: center; gap: 8px; }
+        .cart-qty__btn { width: 36px; height: 36px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-white); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: var(--transition); }
+        .cart-qty__btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+        .cart-qty__value { font-weight: 700; min-width: 24px; text-align: center; }
+        .cart-remove { background: none; border: none; color: #EF4444; cursor: pointer; font-size: 20px; padding: 4px 8px; transition: var(--transition); }
+        .cart-remove:hover { opacity: 0.7; }
+        .cart-total { display: flex; justify-content: space-between; align-items: center; padding: 24px 16px; margin-top: 24px; background: var(--color-bg-light); border-radius: var(--radius-md); }
+        .cart-total__label { font-size: var(--font-size-lg); font-weight: 600; }
+        .cart-total__price { font-size: var(--font-size-3xl); font-weight: 900; color: var(--color-primary); }
+        .cart-actions { display: flex; gap: 16px; justify-content: flex-end; margin-top: 24px; }
+        @media (max-width: 768px) {
+            .cart-table th:nth-child(3), .cart-table td:nth-child(3) { display: none; }
+            .cart-item__image { width: 60px; height: 60px; }
+            .cart-total { flex-direction: column; gap: 12px; text-align: center; }
+            .cart-actions { flex-direction: column; }
+        }
+        @media (max-width: 480px) {
+            .cart-table { font-size: var(--font-size-sm); }
+            .cart-table td, .cart-table th { padding: 10px 8px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" data-header>
+        <div class="container header__container">
+            <a href="/" class="header__logo">
+                <img src="img/logo.png" alt="Прицепы Смоленск" class="header__logo-img" width="180" height="60">
+            </a>
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="/" class="header__menu-link">Главная</a></li>
+                    <li class="header__menu-item"><a href="catalog.html" class="header__menu-link">Каталог</a></li>
+                    <li class="header__menu-item"><a href="about.html" class="header__menu-link">О компании</a></li>
+                    <li class="header__menu-item"><a href="services.html" class="header__menu-link">Услуги</a></li>
+                    <li class="header__menu-item"><a href="contacts.html" class="header__menu-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <div class="header__search">
+                    <form class="search-form" role="search" action="catalog.html">
+                        <input type="search" class="search-form__input" placeholder="Поиск по товарам" aria-label="Поиск" name="q">
+                        <button type="submit" class="search-form__btn" aria-label="Найти">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                        </button>
+                    </form>
+                </div>
+                <a href="cart.html" class="header__cart" aria-label="Корзина">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="header__cart-count" data-cart-count>0</span>
+                </a>
+                <div class="header__contacts-block">
+                    <a href="tel:+74812600310" class="header__phone">+7 (4812) 600-310</a>
+                    <span class="header__work-time">Пн-Вс: 9:00 - 18:00</span>
+                </div>
+            </div>
+            <button class="header__burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="header__mobile-menu" data-mobile-menu>
+            <nav class="header__mobile-nav">
+                <ul class="header__mobile-menu-list">
+                    <li><a href="/" class="header__mobile-menu-link">Главная</a></li>
+                    <li><a href="catalog.html" class="header__mobile-menu-link">Каталог</a></li>
+                    <li><a href="about.html" class="header__mobile-menu-link">О компании</a></li>
+                    <li><a href="services.html" class="header__mobile-menu-link">Услуги</a></li>
+                    <li><a href="contacts.html" class="header__mobile-menu-link">Контакты</a></li>
+                </ul>
+                <div class="header__mobile-contacts">
+                    <a href="tel:+74812600310" class="header__mobile-phone">+7 (4812) 600-310</a>
+                    <span class="header__mobile-work-time">Пн-Вс: 9:00 - 18:00</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Корзина</h1>
+                <p class="page-header__breadcrumb"><a href="/">Главная</a> / Корзина</p>
+            </div>
+        </section>
+
+        <section class="section-padding cart-page">
+            <div class="container" id="cart-content">
+                <div class="cart-empty" id="cart-empty">
+                    <div class="cart-empty__title">Корзина пуста</div>
+                    <p class="cart-empty__text">Добавьте товары из каталога</p>
+                    <a href="catalog.html" class="btn btn--primary btn--large">Перейти в каталог</a>
+                </div>
+                <div id="cart-full" style="display:none">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Товар</th>
+                                <th>Количество</th>
+                                <th>Цена</th>
+                                <th>Сумма</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items"></tbody>
+                    </table>
+                    <div class="cart-total">
+                        <span class="cart-total__label">Итого:</span>
+                        <span class="cart-total__price" id="cart-total-price">0 ₽</span>
+                    </div>
+                    <div class="cart-actions">
+                        <a href="catalog.html" class="btn btn--outline">Продолжить покупки</a>
+                        <button class="btn btn--primary btn--large" data-modal="order" id="cart-checkout">Оформить заказ</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__bar">
+                <img src="img/logo.png" alt="Прицепы Смоленск" class="footer__logo" width="180" height="60">
+                <p class="footer__copyright">&copy; 2024 Прицепы в Смоленске. Все права защищены.</p>
+                <a href="privacy.html" class="footer__privacy">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="modal-order">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Закрыть" data-close-modal>&times;</button>
+            <h3 class="modal__title">Оформление заказа</h3>
+            <p class="modal__subtitle">Заполните данные и мы свяжемся с вами</p>
+            <form class="modal__form" id="order-form-cart">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Подтвердить заказ</button>
+                <p class="form-privacy">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" class="form-privacy__link">политикой конфиденциальности</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartEmpty = document.getElementById('cart-empty');
+        const cartFull = document.getElementById('cart-full');
+        const cartItems = document.getElementById('cart-items');
+        const totalPrice = document.getElementById('cart-total-price');
+
+        function renderCart() {
+            const cart = getCart();
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartFull.style.display = 'none';
+                return;
+            }
+            cartEmpty.style.display = 'none';
+            cartFull.style.display = 'block';
+
+            cartItems.innerHTML = cart.map(item => `
+                <tr>
+                    <td>
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}" class="cart-item__image" loading="lazy">
+                            <a href="product.html?id=${item.id}" class="cart-item__name">${item.name}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cart-qty">
+                            <button class="cart-qty__btn" onclick="updateQty(${item.id}, -1)">−</button>
+                            <span class="cart-qty__value">${item.quantity}</span>
+                            <button class="cart-qty__btn" onclick="updateQty(${item.id}, 1)">+</button>
+                        </div>
+                    </td>
+                    <td>${item.price.toLocaleString()} ₽</td>
+                    <td><strong>${(item.price * item.quantity).toLocaleString()} ₽</strong></td>
+                    <td><button class="cart-remove" onclick="removeItem(${item.id})">&times;</button></td>
+                </tr>
+            `).join('');
+
+            const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+            totalPrice.textContent = total.toLocaleString() + ' ₽';
+        }
+
+        window.updateQty = function(id, delta) {
+            const cart = getCart();
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                const idx = cart.indexOf(item);
+                cart.splice(idx, 1);
+            }
+            saveCart(cart);
+            renderCart();
+        };
+
+        window.removeItem = function(id) {
+            const cart = getCart().filter(i => i.id !== id);
+            saveCart(cart);
+            renderCart();
+        };
+
+        const orderForm = document.getElementById('order-form-cart');
+        if (orderForm) {
+            orderForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = orderForm.querySelector('button[type="submit"]');
+                btn.textContent = 'Отправляем...';
+                btn.disabled = true;
+                setTimeout(() => {
+                    alert('Спасибо за заказ! Наш менеджер свяжется с вами в ближайшее время.');
+                    document.querySelector('.modal').classList.remove('is-active');
+                    document.body.style.overflow = '';
+                    saveCart([]);
+                    renderCart();
+                    btn.textContent = 'Подтвердить заказ';
+                    btn.disabled = false;
+                    orderForm.reset();
+                }, 800);
+            });
+        }
+
+        renderCart();
+    });
+    </script>
+</body>
+</html>
